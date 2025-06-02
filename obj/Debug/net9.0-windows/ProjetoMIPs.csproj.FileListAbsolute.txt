@@ -1,0 +1,16 @@
+C:\Users\ppjun\source\repos\ProjetoMIPs\bin\Debug\net9.0-windows\ProjetoMIPs.exe
+C:\Users\ppjun\source\repos\ProjetoMIPs\bin\Debug\net9.0-windows\ProjetoMIPs.deps.json
+C:\Users\ppjun\source\repos\ProjetoMIPs\bin\Debug\net9.0-windows\ProjetoMIPs.runtimeconfig.json
+C:\Users\ppjun\source\repos\ProjetoMIPs\bin\Debug\net9.0-windows\ProjetoMIPs.dll
+C:\Users\ppjun\source\repos\ProjetoMIPs\bin\Debug\net9.0-windows\ProjetoMIPs.pdb
+C:\Users\ppjun\source\repos\ProjetoMIPs\obj\Debug\net9.0-windows\ProjetoMIPs.csproj.GenerateResource.cache
+C:\Users\ppjun\source\repos\ProjetoMIPs\obj\Debug\net9.0-windows\ProjetoMIPs.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ppjun\source\repos\ProjetoMIPs\obj\Debug\net9.0-windows\ProjetoMIPs.AssemblyInfoInputs.cache
+C:\Users\ppjun\source\repos\ProjetoMIPs\obj\Debug\net9.0-windows\ProjetoMIPs.AssemblyInfo.cs
+C:\Users\ppjun\source\repos\ProjetoMIPs\obj\Debug\net9.0-windows\ProjetoMIPs.csproj.CoreCompileInputs.cache
+C:\Users\ppjun\source\repos\ProjetoMIPs\obj\Debug\net9.0-windows\ProjetoMIPs.dll
+C:\Users\ppjun\source\repos\ProjetoMIPs\obj\Debug\net9.0-windows\refint\ProjetoMIPs.dll
+C:\Users\ppjun\source\repos\ProjetoMIPs\obj\Debug\net9.0-windows\ProjetoMIPs.pdb
+C:\Users\ppjun\source\repos\ProjetoMIPs\obj\Debug\net9.0-windows\ProjetoMIPs.genruntimeconfig.cache
+C:\Users\ppjun\source\repos\ProjetoMIPs\obj\Debug\net9.0-windows\ref\ProjetoMIPs.dll
+C:\Users\ppjun\source\repos\ProjetoMIPs\obj\Debug\net9.0-windows\ProjetoMIPs.FormPrincipal.resources
