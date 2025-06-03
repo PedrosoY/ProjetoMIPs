@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using System.Linq;
+using System.Security.AccessControl;
 using System.Text;
 using System.Windows.Forms;
 
@@ -77,6 +78,11 @@ namespace ProjetoMIPs
             cpu.AtualizarTabelas();
             dgvRegistradores.Refresh(); dgvMemoriaPrograma.Refresh(); dgvMemoriaDados.Refresh();
             UpdateStatusLabels();
+        }
+
+        private void tsbOpen_Click(object sender, EventArgs e)
+        {
+
         }
 
         // File and control handlers omitted for brevity (unchanged)...
@@ -176,20 +182,26 @@ namespace ProjetoMIPs
                 case "add":
                     regs[parts[1]] = regs[parts[2]] + regs[parts[3]];
                     break;
+                case "sub":
+                    regs[parts[1]] = regs[parts[2]] - regs[parts[3]];
+                    break;
                 case "addi":
-                    regs[parts[1]] = regs[parts[2]] + (uint)int.Parse(parts[3]);
+                    short imm16 = parts[3].StartsWith("0x") ? Convert.ToInt16(parts[3], 16) : short.Parse(parts[3]);
+                    int rsValue = (int)regs[parts[2]];
+                    int result = rsValue + imm16;
+                    regs[parts[1]] = (uint)result;
                     break;
                 case "sw":
-                    var off1 = int.Parse(parts[2].Split('(')[0]);
-                    var breg1 = parts[2].Split('(', ')')[1];
-                    var addr1 = (int)regs[breg1] + off1;
-                    var bytes = BitConverter.GetBytes(regs[parts[1]]);
-                    for (int i = 0; i < 4; i++) mem[addr1 + i] = bytes[i];
-                    break;
-                case "sb":
-                    var off2 = int.Parse(parts[2].Split('(')[0]);
-                    var breg2 = parts[2].Split('(', ')')[1];
-                    mem[(int)regs[breg2] + off2] = (byte)regs[parts[1]];
+                    var vsw = parts[2];
+                    var offsetsw = int.Parse(vsw.Split("(")[0]);
+                    var registradorsw = (vsw.Split('(', ')')[1]);
+                    int enderecosw = (int)regs[registradorsw] + offsetsw;
+                    uint valorsw = regs[parts[1]];
+                    var bitssw = BitConverter.GetBytes(valorsw);
+                    for (int i = 0; i < 4; i++)
+                    {
+                        mem[enderecosw + i] = bitssw[i];
+                    }
                     break;
                 case "la":
                     regs[parts[1]] = (uint)int.Parse(parts[2]);
@@ -200,6 +212,95 @@ namespace ProjetoMIPs
                 case "j":
                     ContadorPrograma = labels[parts[1]] - 1;
                     break;
+                case "lw":
+                    var v2 = parts[2];
+                    var offset = int.Parse(v2.Split("(")[0]);
+                    var registrador = (v2.Split('(', ')')[1]);
+                    int endereco = (int)regs[registrador] + offset;
+                    byte b0 = mem.TryGetValue(endereco + 0, out var vb0) ? vb0 : (byte)0;
+                    byte b1 = mem.TryGetValue(endereco + 1, out var vb1) ? vb1 : (byte)0;
+                    byte b2 = mem.TryGetValue(endereco + 2, out var vb2) ? vb2 : (byte)0;
+                    byte b3 = mem.TryGetValue(endereco + 3, out var vb3) ? vb3 : (byte)0;
+                    uint word = (uint)(b0 | (b1 << 8) | (b2 << 16) | (b3 << 24));
+                    regs[parts[1]] = word;
+                    break;
+                case "lh":
+                    var vhalf = parts[2];
+                    var offsethalf = int.Parse(vhalf.Split("(")[0]);
+                    var registradorhalf = (vhalf.Split('(', ')')[1]);
+                    int enderecohalf = (int)regs[registradorhalf] + offsethalf;
+                    byte b0half = mem.TryGetValue(enderecohalf + 0, out var vb0half) ? vb0half : (byte)0;
+                    byte b1half = mem.TryGetValue(enderecohalf + 1, out var vb1half) ? vb1half : (byte)0;
+
+                    short halfword = (short)(b0half | (b1half << 8));
+                    regs[parts[1]] = (uint)halfword;
+                    break;
+
+                case "sh":
+                    var vsh = parts[2];
+                    var offsetsh = int.Parse(vsh.Split("(")[0]);
+                    var registradorsh = (vsh.Split('(', ')')[1]);
+                    int enderecosh = (int)regs[registradorsh] + offsetsh;
+                    short valorsh = (short)regs[parts[1]];
+                    var bitssh = BitConverter.GetBytes(valorsh);
+                    for (int i = 0; i < 2; i++)
+                    {
+                        mem[enderecosh + i] = bitssh[i];
+                    }
+                    break;
+                case "lb":
+                    var vb = parts[2];
+                    var offsetvb = int.Parse(vb.Split("(")[0]);
+                    var registradorvb = (vb.Split('(', ')')[1]);
+                    int enderecovb = (int)regs[registradorvb] + offsetvb;
+                    byte b0vb = mem.TryGetValue(enderecovb + 0, out var vb0vb) ? vb0vb : (byte)0;
+
+                    sbyte signedb0vb = (sbyte)b0vb;
+                    regs[parts[1]] = (uint)signedb0vb;
+                    break;
+                case "sb":
+                    var vsb = parts[2];
+                    var offsetsb = int.Parse(vsb.Split("(")[0]);
+                    var registradorsb = (vsb.Split('(', ')')[1]);
+                    int enderecosb = (int)regs[registradorsb] + offsetsb;
+                    byte valorsb = (byte)regs[parts[1]];
+
+                    mem[enderecosb] = valorsb;
+
+                    break;
+                case "and":
+                    regs[parts[1]] = regs[parts[2]] & regs[parts[3]];
+
+                    break;
+                case "or":
+                    regs[parts[1]] = regs[parts[2]] | regs[parts[3]];
+
+                    break;
+                case "nor":
+                    regs[parts[1]] = ~(regs[parts[2]] | regs[parts[3]]);
+
+                    break;
+                case "andi":
+                    var immandi = parts[3].StartsWith("0x") ? Convert.ToUInt32(parts[3], 16) : uint.Parse(parts[3]);
+                    immandi &= 0xFFFF;
+                    regs[parts[1]] = regs[parts[2]] & immandi;
+                    break;
+                case "ori":
+                    var immori = parts[3].StartsWith("0x") ? Convert.ToUInt32(parts[3], 16) : uint.Parse(parts[3]);
+                    immori &= 0xFFFF;
+                    regs[parts[1]] = regs[parts[2]] | immori;
+                    break;
+                case "sll":
+                    uint rtsll = regs[parts[2]];
+                    int shamt = int.Parse(parts[3]) & 0x1F;
+                    regs[parts[1]] = rtsll << shamt;
+                    break;
+                case "srl":
+                    uint rtsrl = regs[parts[2]];
+                    int shamtsrl = int.Parse(parts[3]) & 0x1F;
+                    regs[parts[1]] = rtsrl >> shamtsrl;
+                    break;
+
             }
         }
 

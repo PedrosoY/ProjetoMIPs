@@ -1,70 +1,12 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\ppjun\\source\\repos\\ProjetoMIPs\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{395C20A8-BB91-4A9B-B97C-88FAFC0F635D}|ProjetoMIPs.csproj|C:\\Users\\ppjun\\source\\repos\\ProjetoMIPs\\formprincipal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{395C20A8-BB91-4A9B-B97C-88FAFC0F635D}|ProjetoMIPs.csproj|solutionrelative:formprincipal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{395C20A8-BB91-4A9B-B97C-88FAFC0F635D}|ProjetoMIPs.csproj|c:\\users\\ppjun\\source\\repos\\projetomips\\formprincipal.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{395C20A8-BB91-4A9B-B97C-88FAFC0F635D}|ProjetoMIPs.csproj|solutionrelative:formprincipal.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{395C20A8-BB91-4A9B-B97C-88FAFC0F635D}|ProjetoMIPs.csproj|c:\\users\\ppjun\\source\\repos\\projetomips\\formprincipal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{395C20A8-BB91-4A9B-B97C-88FAFC0F635D}|ProjetoMIPs.csproj|solutionrelative:formprincipal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "WorkspaceRootPath": "C:\\Users\\Gustavo\\Documents\\GitHub\\ProjetoMIPs\\",
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "FormPrincipal.cs [Projeto]",
-              "DocumentMoniker": "C:\\Users\\ppjun\\source\\repos\\ProjetoMIPs\\FormPrincipal.cs",
-              "RelativeDocumentMoniker": "FormPrincipal.cs",
-              "ToolTip": "C:\\Users\\ppjun\\source\\repos\\ProjetoMIPs\\FormPrincipal.cs [Projeto]",
-              "RelativeToolTip": "FormPrincipal.cs [Projeto]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-30T22:14:49.273Z",
-              "EditorCaption": " [Projeto]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "FormPrincipal.cs",
-              "DocumentMoniker": "C:\\Users\\ppjun\\source\\repos\\ProjetoMIPs\\FormPrincipal.cs",
-              "RelativeDocumentMoniker": "FormPrincipal.cs",
-              "ToolTip": "C:\\Users\\ppjun\\source\\repos\\ProjetoMIPs\\FormPrincipal.cs",
-              "RelativeToolTip": "FormPrincipal.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-30T20:51:27.903Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "FormPrincipal.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\ppjun\\source\\repos\\ProjetoMIPs\\FormPrincipal.Designer.cs",
-              "RelativeDocumentMoniker": "FormPrincipal.Designer.cs",
-              "ToolTip": "C:\\Users\\ppjun\\source\\repos\\ProjetoMIPs\\FormPrincipal.Designer.cs",
-              "RelativeToolTip": "FormPrincipal.Designer.cs",
-              "ViewState": "AgIAAFYAAAAAAAAAAAAuwGQAAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-30T21:02:09.033Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
+      "DocumentGroups": []
     }
   ]
 }

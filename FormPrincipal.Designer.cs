@@ -119,7 +119,7 @@
             tsbOpen.Name = "tsbOpen";
             tsbOpen.Size = new Size(79, 22);
             tsbOpen.Text = "Abrir Código";
-            //tsbOpen.Click += tsbOpen_Click;
+            tsbOpen.Click += tsbOpen_Click;
             // 
             // tsbSave
             // 
@@ -127,7 +127,6 @@
             tsbSave.Name = "tsbSave";
             tsbSave.Size = new Size(84, 22);
             tsbSave.Text = "Salvar Código";
-            //tsbSave.Click += tsbSave_Click;
             // 
             // toolStripSeparator1
             // 
@@ -367,7 +366,6 @@
             btnApplyConfig.TabIndex = 8;
             btnApplyConfig.Text = "Aplicar";
             btnApplyConfig.UseVisualStyleBackColor = true;
-            //btnApplyConfig.Click += btnApplyConfig_Click;
             // 
             // txtCodigoFonte
             // 
@@ -401,7 +399,7 @@
             lblTempoTotal.AutoSize = true;
             lblTempoTotal.Location = new Point(6, 22);
             lblTempoTotal.Name = "lblTempoTotal";
-            lblTempoTotal.Size = new Size(85, 15);
+            lblTempoTotal.Size = new Size(83, 15);
             lblTempoTotal.TabIndex = 0;
             lblTempoTotal.Text = "Tempo Total: 0";
             // 
@@ -410,7 +408,7 @@
             lblPC.AutoSize = true;
             lblPC.Location = new Point(6, 38);
             lblPC.Name = "lblPC";
-            lblPC.Size = new Size(87, 15);
+            lblPC.Size = new Size(88, 15);
             lblPC.TabIndex = 1;
             lblPC.Text = "PC: 0x00000000";
             // 
@@ -437,7 +435,6 @@
             btnProximoCiclo.TabIndex = 0;
             btnProximoCiclo.Text = "Próximo Ciclo";
             btnProximoCiclo.UseVisualStyleBackColor = true;
-            //btnProximoCiclo.Click += btnProximoCiclo_Click;
             // 
             // btnExecutarTudo
             // 
@@ -447,7 +444,6 @@
             btnExecutarTudo.TabIndex = 1;
             btnExecutarTudo.Text = "Executar Até o Fim";
             btnExecutarTudo.UseVisualStyleBackColor = true;
-            //btnExecutarTudo.Click += btnExecutarTudo_Click;
             // 
             // btnStepInto
             // 
@@ -457,7 +453,6 @@
             btnStepInto.TabIndex = 2;
             btnStepInto.Text = "Step Into";
             btnStepInto.UseVisualStyleBackColor = true;
-            //btnStepInto.Click += btnStepInto_Click;
             // 
             // btnStepOver
             // 
@@ -467,7 +462,6 @@
             btnStepOver.TabIndex = 3;
             btnStepOver.Text = "Step Over";
             btnStepOver.UseVisualStyleBackColor = true;
-            //btnStepOver.Click += btnStepOver_Click;
             // 
             // grpInstrucaoAtual
             // 

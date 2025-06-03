@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ppjun\\source\\repos\\ProjetoMIPs\\ProjetoMIPs.csproj": {}
+    "C:\\Users\\Gustavo\\Documents\\GitHub\\ProjetoMIPs\\ProjetoMIPs.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ppjun\\source\\repos\\ProjetoMIPs\\ProjetoMIPs.csproj": {
+    "C:\\Users\\Gustavo\\Documents\\GitHub\\ProjetoMIPs\\ProjetoMIPs.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ppjun\\source\\repos\\ProjetoMIPs\\ProjetoMIPs.csproj",
+        "projectUniqueName": "C:\\Users\\Gustavo\\Documents\\GitHub\\ProjetoMIPs\\ProjetoMIPs.csproj",
         "projectName": "ProjetoMIPs",
-        "projectPath": "C:\\Users\\ppjun\\source\\repos\\ProjetoMIPs\\ProjetoMIPs.csproj",
-        "packagesPath": "C:\\Users\\ppjun\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ppjun\\source\\repos\\ProjetoMIPs\\obj\\",
+        "projectPath": "C:\\Users\\Gustavo\\Documents\\GitHub\\ProjetoMIPs\\ProjetoMIPs.csproj",
+        "packagesPath": "C:\\Users\\Gustavo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Gustavo\\Documents\\GitHub\\ProjetoMIPs\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\ppjun\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Gustavo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -44,7 +44,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net9.0-windows7.0": {
@@ -68,7 +68,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
