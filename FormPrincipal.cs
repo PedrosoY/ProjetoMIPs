@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Security.AccessControl;
@@ -93,7 +94,7 @@ namespace ProjetoMIPs
         private readonly List<Instrucao> prog = new();
         private readonly Dictionary<string, uint> regs = new();
         private readonly Dictionary<int, byte> mem = new();
-        private readonly Dictionary<string, int> labels = new();
+        private readonly Dictionary<string, int> labels = new(); 
         public event PropertyChangedEventHandler? PropertyChanged;
         public BindingList<RegistroView> RegistradoresView { get; } = new();
         public BindingList<ProgramaView> MemoriaProgramaView { get; } = new();
@@ -209,6 +210,9 @@ namespace ProjetoMIPs
                 case "beq":
                     if (regs[parts[1]] == regs[parts[2]]) ContadorPrograma = labels[parts[3]] - 1;
                     break;
+                case "bne":
+                    if (regs[parts[1]] != regs[parts[2]]) ContadorPrograma = labels[parts[3]] - 1;
+                    break;
                 case "j":
                     ContadorPrograma = labels[parts[1]] - 1;
                     break;
@@ -300,6 +304,27 @@ namespace ProjetoMIPs
                     int shamtsrl = int.Parse(parts[3]) & 0x1F;
                     regs[parts[1]] = rtsrl >> shamtsrl;
                     break;
+                case "slt":
+                    regs[parts[1]] = (uint)(((int)regs[parts[2]] < (int)regs[parts[3]]) ? 1 : 0);
+                    break;
+                case "sltu":
+                    regs[parts[1]] = (uint)((regs[parts[2]] < regs[parts[3]]) ? 1 : 0);
+                    break;
+                case "slti":
+                    regs[parts[1]] = (uint)(((int)regs[parts[2]] < int.Parse(parts[3])) ? 1 : 0);
+                    break;
+                case "sltiu":
+                    regs[parts[1]] = (uint)((regs[parts[2]] < uint.Parse(parts[3])) ? 1 : 0);
+                    break;
+                case "jr":
+                    ContadorPrograma = (int)regs["$ra"];
+                    break;
+                case "jal":
+                    regs["$ra"] = (uint)(ContadorPrograma + 1);
+                    ContadorPrograma = labels[parts[1]];
+                    break;
+
+
 
             }
         }

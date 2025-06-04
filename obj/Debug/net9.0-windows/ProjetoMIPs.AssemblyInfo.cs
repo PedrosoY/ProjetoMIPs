@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ProjetoMIPs")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5620f4f698843657218892e446bc89b846f7de1b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+715556782f60f3ba12992ac6d0adf3389e377b7a")]
 [assembly: System.Reflection.AssemblyProductAttribute("ProjetoMIPs")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ProjetoMIPs")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
