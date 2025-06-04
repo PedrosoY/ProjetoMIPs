@@ -83,8 +83,104 @@ namespace ProjetoMIPs
 
         private void tsbOpen_Click(object sender, EventArgs e)
         {
+            OpenFileDialog openFile = new OpenFileDialog
+            {
+                Title = "Abrir Arquivo",
+                Filter = "Arquivos de Texto (*.txt)|*.txt|Todos os Arquivos (*.*)|*.*",
+                InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)
+            };
+
+            if (openFile.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = openFile.FileName;
+                try
+                {
+                    string fileContent = File.ReadAllText(filePath);
+                    string firstLine = File.ReadLines(filePath).First();
+                    ConfigurarCPU(firstLine);
+                    txtCodigoFonte.Text = fileContent;
+                    MessageBox.Show("Arquivo carregado com sucesso!", "Sucesso");
+
+                    // Exemplo: Exibir o conteúdo em um TextBox
+                    // textBox1.Text = fileContent;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro ao ler o arquivo: " + ex.Message);
+                }
+            }
 
         }
+        private void ConfigurarCPU(string primeiraLinha)
+        {
+            if (primeiraLinha.Contains("config_CPU = ["))
+            {
+                try
+                {
+                    string dados = primeiraLinha.Replace("config_CPU = [", "")
+                                                .Replace("]", "")
+                                                .Trim();
+
+                    string[] itens = dados.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+
+                    Dictionary<string, string> configCPU = new Dictionary<string, string>();
+
+                    foreach (var item in itens)
+                    {
+                        string parte = item.Trim();
+
+                        if (parte.Contains("="))
+                        {
+                            var keyValue = parte.Split('=');
+
+                            if (keyValue.Length == 2)
+                            {
+                                string chave = keyValue[0].Trim();
+                                string valor = keyValue[1].Trim();
+
+                                configCPU[chave] = valor;
+                            }
+                            else
+                            {
+                                MessageBox.Show($"Formato inválido no item: {parte}");
+                                return;
+                            }
+                        }
+                        else
+                        {
+                            configCPU["Frequencia"] = parte;
+                        }
+                    }
+
+                    string resultado = "Configuração CPU carregada:\n";
+
+                    foreach (var kvp in configCPU)
+                    {
+                        resultado += $"{kvp.Key} = {kvp.Value}\n";
+                    }
+
+
+                    MessageBox.Show(resultado);
+                    nudFrequencia.Value = int.Parse(configCPU["Frequencia"].Replace("GHz", "").Trim());
+                    nudParamI.Value = Convert.ToDecimal(configCPU["i"]);
+                    nudParamJ.Value = Convert.ToDecimal(configCPU["j"]);
+                    nudParamR.Value = Convert.ToDecimal(configCPU["r"]);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro ao processar config_CPU: " + ex.Message);
+                }
+
+                
+            }
+            else
+            {
+                MessageBox.Show("config_CPU no formato errado!");
+            }
+        }
+
+
+
 
         // File and control handlers omitted for brevity (unchanged)...
     }
@@ -323,9 +419,6 @@ namespace ProjetoMIPs
                     regs["$ra"] = (uint)(ContadorPrograma + 1);
                     ContadorPrograma = labels[parts[1]];
                     break;
-
-
-
             }
         }
 
